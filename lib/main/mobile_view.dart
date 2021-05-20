@@ -50,6 +50,7 @@ class _MobileViewState extends State<MobileView> {
          return Scaffold(
            key: _globalKey,
         backgroundColor: Color(0xff100e17),
+             // backgroundColor: Colors.white,
         drawer: Drawer(
           child: Container(
             width: 50,
@@ -81,6 +82,8 @@ class _MobileViewState extends State<MobileView> {
             ),
           ),
         ),
+
+
         appBar: AppBar(
           backgroundColor: Color(0xff100e17),
           leading: IconButton(
@@ -93,61 +96,35 @@ class _MobileViewState extends State<MobileView> {
             },
           ),
         ),
+
+
         body: Container(
           width: size.width,
           height: size.height,
           child: ListView(
  controller: controller,
             children: [
+
+
+              /// mobile view Home section
               AutoScrollTag(
               key: ValueKey(0),
           controller: controller,
           index: 0,
-          child:     /// Home
-          Container(
+          child:Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  margin: EdgeInsets.only(
-                      right: value ? 0.0 : 40,
-                      bottom: 40,
-                      left: 45),
+                 alignment: Alignment.center,
                   child: Stack(
                     children: [
-                      Container(
-                        width: 355,
-                        height: 355,
-                        constraints: BoxConstraints(
-                          maxWidth: 360,
-                          maxHeight: 360,
-                        ),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border(
-                                top: BorderSide(
-                                  color: Colors.black,
-                                  width: 20,
-                                ),
-                                bottom: BorderSide(
-                                  color: Colors.black,
-                                  width: 20,
-                                ),
-                                right: BorderSide(
-                                  color: Colors.black,
-                                  width: 20,
-                                ),
-                                left: BorderSide(
-                                  color: Colors.black,
-                                  width: 20,
-                                ))),
-                      ),
                       Positioned(
-                        top: 16,
-                        left: 16,
+                        top: size.width>500?15:size.width*0.03,
+                        left: size.width>500?14:size.width*0.03,
                         child: Container(
-                          margin: EdgeInsets.all(0),
-                          width: 330,
-                          height: 330,
+                          width: size.width*0.7,
+                          height: size.width*0.7,
                           constraints: BoxConstraints(
                             maxWidth: 340,
                             maxHeight: 340,
@@ -179,8 +156,12 @@ class _MobileViewState extends State<MobileView> {
                         ),
                       ),
                       Container(
-                        width: 365,
-                        height: 365,
+                        width: size.width*0.74,
+                        height: size.width*0.74,
+                        constraints: BoxConstraints(
+                          maxHeight: 365,
+                          maxWidth: 365
+                        ),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border(
@@ -205,12 +186,18 @@ class _MobileViewState extends State<MobileView> {
                     ],
                   ),
                 ),
+
+
                 InkWell(
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 180),
+                    margin: EdgeInsets.only(top: size.height*0.1),
                     alignment: Alignment.center,
-                    width: 120,
-                    height: 35,
+                    width: size.width*0.28,
+                    height: size.height*0.05,
+                    constraints: BoxConstraints(
+                      maxWidth: 120,
+                      maxHeight: 35
+                    ),
                     child: Text(
                       "Hello I'm",
                       style: GoogleFonts.cabin(
@@ -227,35 +214,43 @@ class _MobileViewState extends State<MobileView> {
                         )),
                   ),
                 ),
+
+
                 Container(
-                    width: 500,
-                    height: 80,
+                    width: size.width,
+                    height: size.height*0.18,
+                   constraints: BoxConstraints(
+                     maxHeight: 80,
+                     maxWidth: 500
+                   ),
                     child: Text("M. Kashif\n\n",
                       style: GoogleFonts.lalezar(
                           color: Colors.white,
                           fontWeight: FontWeight.w100,
-                          fontSize: 70),textAlign: TextAlign.center,)),
+                          fontSize:size.width>428?70:size.width*0.17),textAlign: TextAlign.center,)),
                 Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: EdgeInsets.only(top: size.height*0.01),
                     width: 500,
                     height: 50,
                     child: Text("App Developer\n\n",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
-                          fontSize: 35,
+                          fontSize:size.width>428?35:size.width*0.08,
                         ),textAlign: TextAlign.center)),
 
                 /// Contact info
                 Container(
-                  width: size.width,
-                  height: 120,
+                  alignment: Alignment.center,
+                  width:size.width>650?300:size.width<600?size.width<478?size.width*0.9:size.width*0.5:size.width*0.4,
+                  height: 140,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
+                        margin: EdgeInsets.symmetric(vertical: 7),
                         alignment: Alignment.center,
-                        margin: EdgeInsets.symmetric(horizontal: 110,vertical: 5),
-                        width: 280,
+                        width:size.width<370?size.width*0.67: size.width*0.67,
                         child: Row(
                           children: [
                             InkWell(
@@ -264,7 +259,7 @@ class _MobileViewState extends State<MobileView> {
                                 color: inbox
                                     ? Colors.blue
                                     : Colors.white,
-                                size: 17,
+                                size: size.width>368?17:size.width*0.06,
                               ),
                               onTap: () {},
                               onHover: (value) {
@@ -277,15 +272,15 @@ class _MobileViewState extends State<MobileView> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w100,
-                                  fontSize: 14,
+                                  fontSize:size.width>368?14:size.width*0.037,
                                 ))
                           ],
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 110,vertical: 5),
-
-                        width: 280,
+                        margin: EdgeInsets.symmetric(vertical: 4),
+                        alignment: Alignment.center,
+                        width: size.width*0.65,
                         child: Row(
                           children: [
                             InkWell(
@@ -294,7 +289,7 @@ class _MobileViewState extends State<MobileView> {
                                   color: phone
                                       ? Colors.blue
                                       : Colors.white,
-                                  size: 17),
+                                  size: size.width>368?17:size.width*0.06),
                               onHover: (value) {
                                 setState(() {
                                   phone = value;
@@ -305,14 +300,16 @@ class _MobileViewState extends State<MobileView> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w100,
-                                  fontSize: 14,
-                                ))
+                                  fontSize: size.width>368?14:size.width*0.037,
+                                ),
+                            )
                           ],
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 110,vertical: 5),
-                        width: 280,
+                        margin: EdgeInsets.symmetric(vertical: 4),
+                        alignment: Alignment.center,
+                        width: size.width*0.65,
                         child: Row(
                           children: [
                             InkWell(
@@ -326,13 +323,13 @@ class _MobileViewState extends State<MobileView> {
                                 },
                                 child: Icon(Icons.location_on,
                                     color:location?Colors.blue: Colors.white,
-                                    size: 17)),
+                                    size: size.width>368?17:size.width*0.06)),
                             Text(
                                 "    Gulshan-Ravi, Lahore, Pakistan",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w100,
-                                  fontSize: 14,
+                                  fontSize: size.width>368?14:size.width*0.037,
                                 ))
                           ],
                         ),
@@ -343,8 +340,10 @@ class _MobileViewState extends State<MobileView> {
 
                 /// Social
                 Container(
-                  width: 200,
-                  margin: EdgeInsets.only(top: 2,left: 100,right: 100),
+                  width: size.width*0.5,
+                  constraints: BoxConstraints(
+                    maxWidth: 200
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -424,17 +423,18 @@ class _MobileViewState extends State<MobileView> {
           ),
           highlightColor: Colors.black.withOpacity(0.1),
         ),
+
+
            AutoScrollTag(
              key: ValueKey(1),
              controller: controller,
              index: 1,
-             child:       Container(
+             child:Container(
                child: Column(
                  crossAxisAlignment: CrossAxisAlignment.center,
                  children: [
-
                    Container(
-
+                     width: size.width*0.8,
                      margin: EdgeInsets.only(top: 140),
                      child: Image.asset("images/image.png"),
                      constraints: BoxConstraints(
@@ -448,7 +448,7 @@ class _MobileViewState extends State<MobileView> {
                      "About Me",
                      style: TextStyle(
                          color: Colors.white,
-                         fontSize: 35,
+                         fontSize:size.width>368?35:size.width*0.09,
                          fontWeight: FontWeight.w800),
                    ),
                    SizedBox(
@@ -472,40 +472,29 @@ class _MobileViewState extends State<MobileView> {
                    ),
                    Container(
                      padding: EdgeInsets.symmetric(horizontal: 60),
-                     child: Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                     child: Wrap(
                        children: [
                          SkillView(title:"Flutter" ,),
                          SkillView(title:"Android" ,),
                          SkillView(title:"Dart" ,),
                          SkillView(title:"Java" ,),
                          SkillView(title:"SQLite" ,),
+                         SkillView(title:"NoLite" ,),
+                         SkillView(title:"Firebase" ,),
+                         SkillView(title:"Adobe XD" ,),
+
                        ],
                      ),
                    ),
                    SizedBox(
                      height: 15,
                    ),
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                       SkillView(title:"SQLite" ,),
-                       SizedBox(
-                         width: 15,
-                       ),
-                       SkillView(title:"Firebase" ,),
-                       SizedBox(
-                         width: 15,
-                       ),
-                       SkillView(title:"Adobe XD" ,),
-                     ],
-                   ),
 
                    Container(
                      padding:EdgeInsets.symmetric(vertical: 7),
-                     margin: EdgeInsets.only(top: 30,left: 120,right: 110),
                      constraints:
                      BoxConstraints(maxWidth: 200),
+                     width:size.width>368? 200:size.width*0.5,
                      decoration: BoxDecoration(
                          color: Colors.blue,
                          borderRadius:
@@ -523,7 +512,7 @@ class _MobileViewState extends State<MobileView> {
                              style: TextStyle(
                                  color: Colors.white,
                                  fontWeight: FontWeight.w600,
-                                 fontSize: 17),
+                                 fontSize:size.width>368? 17:size.width*0.05),
                            ),
                            SizedBox(
                              width: 5,
@@ -531,6 +520,7 @@ class _MobileViewState extends State<MobileView> {
                            Icon(
                              Icons.file_download,
                              color: Colors.white,
+                             size: size.width>368? 20:size.width*0.05,
                            )
                          ],
                        ),
@@ -545,7 +535,124 @@ class _MobileViewState extends State<MobileView> {
              highlightColor: Colors.black.withOpacity(0.1),
            ),
              ///About
+              Container(
+                margin: EdgeInsets.only(top: 50,),
+                constraints: BoxConstraints(maxWidth: 1100),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("What I do",style: TextStyle(color: Colors.white,fontSize: 35,fontWeight: FontWeight.w800),)
+                    ,SizedBox(
+                      height: 50,
+                    ),
+                   Wrap(
+                     children: [
+                     Container(
+                       padding: EdgeInsets.all(15),
+                       margin: EdgeInsets.all(15),
+                       decoration: BoxDecoration(
+                           color: Color(0xff1e1e25)
+                       ),
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                           Row(children: [
+                             Container(
+                               width:30,
+                               height: 30,
+                               child: Image.asset("images/uidesign.png"),
 
+                               margin: EdgeInsets.only(bottom: 20),
+                             )
+                           ],),
+
+                           Text("UI Design",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.w800),),
+                           SizedBox(
+                             height: 15,
+                           ),Container(
+
+                               constraints: BoxConstraints(
+                                   maxWidth: 350
+                               ),
+                               child: Text("User interface (UI) design is the process designers use to build interfaces in software or computerized devices, focusing on looks or style. Designers aim to create interfaces which users find easy to use and pleasurable.",style: TextStyle(fontSize: 15,color: Colors.white),))
+                         ],
+                       ),
+                     ),
+                     Container(
+                       padding: EdgeInsets.all(15),
+                       margin: EdgeInsets.all(15),
+                       decoration: BoxDecoration(
+                           color: Color(0xff1e1e25)
+                       ),
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                           Row(children: [
+                             Container(
+                               width:35,
+                               height: 35,
+                               child: Image.asset("images/web.png"),
+
+                               margin: EdgeInsets.only(bottom: 20),
+                             )
+                           ],),
+                           Text("Web Development",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.w800),),
+                           SizedBox(
+                             height: 17,
+                           ),
+                           Container(
+                               constraints: BoxConstraints(
+                                   maxWidth: 350
+                               ),
+                               child: Text("Web development is the building of websites; it's the work that happens behind the scenes to make a website look great, work fast and perform well with a seamless user experience using Google's flutter SDK.",style: TextStyle(fontSize: 15,color: Colors.white),))
+                         ],
+                       ),
+                     ),
+                     Container(
+                       padding: EdgeInsets.all(15),
+                       margin: EdgeInsets.all(15),
+                       decoration: BoxDecoration(
+                           color: Color(0xff1e1e25)
+                       ),
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+
+                           Row(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               Container(
+                                 width:35,
+                                 height: 35,
+                                 child: Image.asset("images/android.png"),
+
+                                 margin: EdgeInsets.only(bottom: 20),
+
+                               ),
+                               Container(
+                                 width:35,
+                                 height: 30,
+                                 child: Image.asset("images/apple.png",scale: 6,),
+
+
+                               )
+                             ],),
+                           Text("App Development",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.w800),),
+                           SizedBox(
+                             height: 17,
+                           ),                                   Container(
+                               constraints: BoxConstraints(
+                                   maxWidth: 350
+                               ),
+                               child: Text("Flutter is Google's open source technology for creating mobile, desktop, and web apps with a single codebase. Unlike other popular solutions, Flutter is not a framework or library; it's a complete SDK – software development kit",style: TextStyle(fontSize: 15,color: Colors.white),))
+                         ],
+                       ),
+                     ),
+                   ],)
+
+                  ],
+                ),
+              )
             ],
           ),
         ));
